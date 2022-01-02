@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
-import com.ruyuan.rapid.common.constants.BasicConst;
+import com.zyk.gateway.common.constants.BasicConst;
 
 import java.io.Writer;
 import java.text.SimpleDateFormat;

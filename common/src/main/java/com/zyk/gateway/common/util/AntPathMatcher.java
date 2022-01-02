@@ -2,8 +2,8 @@ package com.zyk.gateway.common.util;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.ruyuan.rapid.common.util.AssertUtil;
-import com.ruyuan.rapid.common.util.CollectionUtils;
+import com.zyk.gateway.common.util.AssertUtil;
+import com.zyk.gateway.common.util.CollectionUtils;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

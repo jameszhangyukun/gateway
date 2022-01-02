@@ -1,6 +1,6 @@
 package com.zyk.gateway.common.exception;
 
-import com.ruyuan.rapid.common.enums.ResponseCode;
+import com.zyk.gateway.common.enums.ResponseCode;
 
 /**
  * <B>主类名称：</B>RapidBaseException<BR>

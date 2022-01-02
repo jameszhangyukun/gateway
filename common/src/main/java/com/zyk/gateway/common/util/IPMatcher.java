@@ -5,8 +5,8 @@ import java.net.UnknownHostException;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.ruyuan.rapid.common.enums.ResponseCode;
-import com.ruyuan.rapid.common.exception.RapidBaseException;
+import com.zyk.gateway.common.enums.ResponseCode;
+import com.zyk.gateway.common.exception.RapidBaseException;
 
 import lombok.extern.slf4j.Slf4j;
 

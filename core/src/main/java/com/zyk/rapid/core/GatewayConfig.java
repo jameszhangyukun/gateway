@@ -1,6 +1,8 @@
 package com.zyk.rapid.core;
 
+import com.lmax.disruptor.*;
 import com.zyk.gateway.common.constants.BasicConst;
+import com.zyk.gateway.common.constants.RapidBufferHelper;
 import com.zyk.gateway.common.util.NetUtils;
 import lombok.Data;
 
@@ -53,13 +55,27 @@ public class GatewayConfig {
     private boolean whenComplete = true;
 
     //	网关队列配置：缓冲模式；
-    private String bufferType = ""; // RapidBufferHelper.FLUSHER;
+    private String bufferType = RapidBufferHelper.FLUSHER;; // RapidBufferHelper.FLUSHER;
 
     //	网关队列：内存队列大小
     private int bufferSize = 1024 * 16;
 
     //	网关队列：阻塞/等待策略
     private String waitStrategy = "blocking";
+
+    public WaitStrategy getATrueWaitStrategy() {
+        switch (waitStrategy) {
+            case "busySpin":
+                return new BusySpinWaitStrategy();
+            case "yielding":
+                return new YieldingWaitStrategy();
+            case "sleeping":
+                return new SleepingWaitStrategy();
+            default:
+                return new BlockingWaitStrategy();
+        }
+    }
+
     /**
      * Netty的Boss线程数
      */

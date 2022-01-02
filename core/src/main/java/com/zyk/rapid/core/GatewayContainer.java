@@ -5,6 +5,7 @@ import com.zyk.rapid.core.netty.NettyHttpClient;
 import com.zyk.rapid.core.netty.NettyHttpServer;
 import com.zyk.rapid.core.netty.processor.NettyBatchEventProcessor;
 import com.zyk.rapid.core.netty.processor.NettyCoreProcessor;
+import com.zyk.rapid.core.netty.processor.NettyMpmcProcessor;
 import com.zyk.rapid.core.netty.processor.NettyProcessor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -38,14 +39,16 @@ public class GatewayContainer implements LifeCycle {
 
     @Override
     public void init() {
-        // 构建核心处理器
+        // 1. 构建核心处理器
         NettyCoreProcessor nettyCoreProcessor = new NettyCoreProcessor();
 
-        // 开启缓存
+        // 2. 开启缓存
         String bufferType = gatewayConfig.getBufferType();
 
         if (RapidBufferHelper.isFlusher(bufferType)) {
             nettyProcessor = new NettyBatchEventProcessor(gatewayConfig, nettyCoreProcessor);
+        } else if (RapidBufferHelper.isMpmc(bufferType)) {
+            nettyProcessor = new NettyMpmcProcessor(gatewayConfig, nettyCoreProcessor,true);
         } else {
             nettyProcessor = nettyCoreProcessor;
         }

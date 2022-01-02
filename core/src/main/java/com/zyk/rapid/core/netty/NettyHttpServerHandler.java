@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * Netty核心处理类
+ * SimpleInboundHandlerAdapter会自动释放msg
  */
 @Slf4j
 public class NettyHttpServerHandler extends ChannelInboundHandlerAdapter {
