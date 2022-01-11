@@ -1,6 +1,10 @@
 package com.zyk.rapid.core.netty.processor;
 
 import com.zyk.rapid.core.context.HttpRequestWrapper;
+import com.zyk.rapid.core.context.RapidContext;
+import com.zyk.rapid.core.context.RapidRequest;
+import com.zyk.rapid.core.helper.RequestHelper;
+import com.zyk.rapid.core.netty.processor.filter.DefaultProcessorFilterFactory;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpRequest;
 
@@ -14,10 +18,10 @@ public class NettyCoreProcessor implements NettyProcessor {
         FullHttpRequest fullHttpRequest = event.getFullHttpRequest();
         try {
             // 解析http请求，转换为内部对象 Context
-
+            RapidContext rapidContext = RequestHelper.doContext(fullHttpRequest, context);
             // 执行过滤器逻辑Filter Chain
             System.out.println("接收到请求");
-        }catch (Throwable t){
+        } catch (Throwable t) {
 
         }
     }

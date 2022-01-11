@@ -10,4 +10,8 @@ public class OrderEvent {
     public void setValue(long value) {
         this.value = value;
     }
+
+    public void print() {
+        System.out.println("father");
+    }
 }
