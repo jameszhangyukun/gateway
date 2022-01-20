@@ -8,10 +8,40 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
+        <module name="client" />
         <module name="common" />
+        <module name="rapid-test-dubbo" />
         <module name="discovery-etcd" />
         <module name="discovery-api" />
       </profile>
+      <profile name="Annotation profile for rapid-test-mvc" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/org/mapstruct/mapstruct-processor/1.2.0.Final/mapstruct-processor-1.2.0.Final.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/com/jolira/hickory/1.0.0/hickory-1.0.0.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/org/mapstruct/mapstruct/1.2.0.Final/mapstruct-1.2.0.Final.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/junit/junit/4.12/junit-4.12.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/org/assertj/assertj-core/3.7.0/assertj-core-3.7.0.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/com/google/guava/guava/19.0/guava-19.0.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/com/puppycrawl/tools/checkstyle/7.2/checkstyle-7.2.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/javax/inject/javax.inject/1/javax.inject-1.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/org/codehaus/plexus/plexus-container-default/1.6/plexus-container-default-1.6.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/org/springframework/spring-test/4.0.3.RELEASE/spring-test-4.0.3.RELEASE.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/org/springframework/spring-beans/4.0.3.RELEASE/spring-beans-4.0.3.RELEASE.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/org/springframework/spring-context/4.0.3.RELEASE/spring-context-4.0.3.RELEASE.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/joda-time/joda-time/2.9/joda-time-2.9.jar" />
+          <entry name="$PROJECT_DIR$/../../maven/mavenRepo/org/projectlombok/lombok/1.18.0/lombok-1.18.0.jar" />
+        </processorPath>
+        <module name="rapid-test-mvc" />
+      </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="rapid-test-dubbo" options="-parameters" />
+      <module name="rapid-test-mvc" options="-parameters" />
+    </option>
   </component>
 </project>

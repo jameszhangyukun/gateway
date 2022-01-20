@@ -12,6 +12,7 @@
         <module>core</module>
         <module>discovery</module>
         <module>common</module>
+        <module>client</module>
     </modules>
 
     <properties>

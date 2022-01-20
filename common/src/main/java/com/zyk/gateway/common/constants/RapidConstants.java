@@ -9,5 +9,7 @@ public interface RapidConstants {
 
     String PROTOCOL_KEY = "protocol";
 
+    int DEFAULT_WEIGHT = 100;
 
+    int DEFAULT_REQUEST_TIMEOUT = 20000;
 }
