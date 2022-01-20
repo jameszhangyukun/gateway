@@ -1,0 +1,31 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.zyk.rapid.client.core.autoconfigure.RapidProperties",
+      "name": "rapid",
+      "type": "com.zyk.rapid.client.core.autoconfigure.RapidProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.zyk.rapid.client.core.autoconfigure.RapidProperties",
+      "defaultValue": "dev",
+      "name": "rapid.env",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zyk.rapid.client.core.autoconfigure.RapidProperties",
+      "defaultValue": "rapid",
+      "name": "rapid.namespace",
+      "description": "命名空间",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zyk.rapid.client.core.autoconfigure.RapidProperties",
+      "name": "rapid.registry-address",
+      "description": "etcd注册中心",
+      "type": "java.lang.String"
+    }
+  ]
+}
