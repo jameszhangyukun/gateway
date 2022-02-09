@@ -1,6 +1,7 @@
 package com.zyk.rapid.core.netty.processor.filter;
 
 import com.zyk.rapid.core.context.Context;
+import com.zyk.rapid.core.helper.ResponseHelper;
 
 /**
  * 抽象带有链表的过滤器
@@ -20,12 +21,21 @@ public abstract class AbstractLinkedProcessorFilter<T> implements ProcessorFilte
      */
     @Override
     public void fireNext(Context context, Object... args) throws Throwable {
+        // 上下文生命周期的作用
+        if (context.isTerminated()) {
+            return;
+        }
+        if (context.isWrittened()) {
+            ResponseHelper.writeResponse(context);
+        }
         if (next != null) {
             if (!next.check(context)) {
                 next.fireNext(context, args);
             } else {
                 next.transformEntry(context, args);
             }
+        } else {
+            context.terminated();
         }
     }
 

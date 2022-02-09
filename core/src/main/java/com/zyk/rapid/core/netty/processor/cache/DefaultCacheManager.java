@@ -2,6 +2,7 @@ package com.zyk.rapid.core.netty.processor.cache;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
+import org.apache.dubbo.rpc.service.GenericService;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -66,7 +67,12 @@ public class DefaultCacheManager {
         }
     }
 
+
     public void cleanAll() {
         cacheMap.values().forEach(Cache::invalidateAll);
+    }
+
+    public static Cache<String, GenericService> createCacheForDubboGenericService() {
+        return Caffeine.newBuilder().build();
     }
 }

@@ -8,8 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
-        <module name="client" />
         <module name="common" />
+        <module name="rapid-test-dubbo (1)" />
+        <module name="client" />
         <module name="rapid-test-dubbo" />
         <module name="discovery-etcd" />
         <module name="discovery-api" />
@@ -35,13 +36,16 @@
           <entry name="$PROJECT_DIR$/../../maven/mavenRepo/org/projectlombok/lombok/1.18.0/lombok-1.18.0.jar" />
         </processorPath>
         <module name="rapid-test-mvc" />
+        <module name="rapid-test-mvc (1)" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="rapid-test-dubbo" options="-parameters" />
+      <module name="rapid-test-dubbo (1)" options="-parameters" />
       <module name="rapid-test-mvc" options="-parameters" />
+      <module name="rapid-test-mvc (1)" options="-parameters" />
     </option>
   </component>
 </project>

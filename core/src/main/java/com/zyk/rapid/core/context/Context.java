@@ -26,6 +26,8 @@ public interface Context {
 
     /**
      * 表示整个网关请求完毕, 彻底结束
+     * 1. 正常结束，有响应结果或程序正常执行 pre->route-> post
+     * 2. 异常结束，抛出异常
      */
     int TERMINATED = 2;
 
@@ -128,5 +130,17 @@ public interface Context {
      * 回调函数执行
      */
     void invokeCompletedCallback();
+
+    /**
+     * SR：服务器接收到网络请求
+     * SS：服务器写回请求
+     * RS：客户端发送网络请求
+     * RR：客户端收到请求
+     */
+//    void getSRTime();
+//
+//    void setSRTime(long SRTime);
+
+
 
 }

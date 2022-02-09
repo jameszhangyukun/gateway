@@ -36,6 +36,10 @@ public class DynamicConfigManager {
         return SingletonHolder.INSTANCE;
     }
 
+    public Set<ServiceInstance> getServiceInstances(String uniqueId){
+        return serviceInstanceMap.get(uniqueId);
+    }
+
     public void putRule(String ruleId, Rule rule) {
         ruleMap.put(ruleId, rule);
     }
@@ -73,6 +77,10 @@ public class DynamicConfigManager {
         serviceInstances.add(serviceInstance);
     }
 
+    public void addServiceInstance(String uniqueId, Set<ServiceInstance> serviceInstances) {
+        serviceInstanceMap.put(uniqueId, serviceInstances);
+    }
+
     public void updateServiceInstance(String uniqueId, ServiceInstance serviceInstance) {
         Set<ServiceInstance> serviceInstances = serviceInstanceMap.get(uniqueId);
         Iterator<ServiceInstance> instanceIterator = serviceInstances.iterator();
@@ -102,4 +110,7 @@ public class DynamicConfigManager {
         serviceInstanceMap.remove(uniqueId);
     }
 
+    public ConcurrentHashMap<String, Set<ServiceInstance>> getServiceInstanceMap() {
+        return serviceInstanceMap;
+    }
 }

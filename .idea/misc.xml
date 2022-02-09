@@ -8,6 +8,8 @@
         <option value="$PROJECT_DIR$/common/pom.xml" />
         <option value="$PROJECT_DIR$/rapid-test-dubbo/pom.xml" />
         <option value="$PROJECT_DIR$/rapid-test-mvc/pom.xml" />
+        <option value="$PROJECT_DIR$/rapid-test-dubbo1/pom.xml" />
+        <option value="$PROJECT_DIR$/rapid-test-mvc1/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

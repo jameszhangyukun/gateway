@@ -59,7 +59,6 @@ public class NettyBatchEventProcessor implements NettyProcessor {
 
         @Override
         public void onEvent(HttpRequestWrapper event) throws Exception {
-            System.out.println("BatchEventProcessorListener Put");
             nettyCoreProcessor.process(event);
         }
 

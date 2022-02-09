@@ -54,7 +54,10 @@ public class DefaultProcessorFilterFactory extends AbstractProcessorFilterFactor
             log.error("#DefaultProcessorFilterFactory.doFilterChain # ERROR MESSAGE{}", e.getMessage(), e);
             // 设置异常
             context.setThrowable(e);
-            // TODO 执行doFilterChain还有关键步骤
+            // 执行doFilterChain显式抛出异常时 Context的生命周期为TERNIMATED
+            if (context.isTerminated()) {
+                context.runned();
+            }
             // 执行异常处理器链条
             doErrorFilterChain(context);
         }

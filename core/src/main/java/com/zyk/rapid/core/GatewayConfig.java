@@ -23,12 +23,14 @@ public class GatewayConfig {
     /**
      * 注册中心的地址
      */
-    private String registerAddress = "";
+    private String registryAddress = "http://127.0.0.1:2379";
 
     /**
      * 网关的命名空间
      */
     private String namespace = "gateway-dev";
+
+    private String env = "dev";
     /**
      * 网关服务器的CPU核数
      */
@@ -55,7 +57,8 @@ public class GatewayConfig {
     private boolean whenComplete = true;
 
     //	网关队列配置：缓冲模式；
-    private String bufferType = RapidBufferHelper.FLUSHER;; // RapidBufferHelper.FLUSHER;
+    private String bufferType = RapidBufferHelper.FLUSHER;
+    ; // RapidBufferHelper.FLUSHER;
 
     //	网关队列：内存队列大小
     private int bufferSize = 1024 * 16;

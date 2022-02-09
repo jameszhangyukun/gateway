@@ -39,7 +39,7 @@ public class RapidContext extends BasicContext {
         }
 
         public Builder setNettyCtx(ChannelHandlerContext nettyCtx) {
-            this.protocol = protocol;
+            this.nettyCtx = nettyCtx;
             return this;
         }
 

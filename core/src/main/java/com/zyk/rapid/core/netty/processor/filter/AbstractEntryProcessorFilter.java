@@ -29,7 +29,6 @@ public abstract class AbstractEntryProcessorFilter<FilterConfigClass> extends Ab
 
     @Override
     public void transformEntry(Context context, Object... args) throws Throwable {
-        System.out.println("parent");
         FilterConfigClass filterConfigClass = dynamicLoadCache(context, args);
         super.transformEntry(context, filterConfigClass);
     }

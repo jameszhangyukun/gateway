@@ -1,7 +1,6 @@
 package com.zyk.rapid.core.netty.processor.filter.pre;
 
 import com.zyk.gateway.common.config.DubboServiceInvoker;
-import com.zyk.gateway.common.config.ServiceInvoker;
 import com.zyk.gateway.common.constants.ProcessFilterConstants;
 import com.zyk.rapid.core.context.AttributeKey;
 import com.zyk.rapid.core.context.Context;
@@ -12,6 +11,7 @@ import com.zyk.rapid.core.netty.processor.filter.Filter;
 import com.zyk.rapid.core.netty.processor.filter.FilterConfig;
 import com.zyk.rapid.core.netty.processor.filter.ProcessorFilterType;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import static com.zyk.gateway.common.constants.RapidProtocol.DUBBO;
 import static com.zyk.gateway.common.constants.RapidProtocol.HTTP;
@@ -27,6 +27,7 @@ public class TimeoutPreFilter extends AbstractEntryProcessorFilter<TimeoutPreFil
         super(TimeoutPreFilter.Config.class);
     }
 
+    @EqualsAndHashCode(callSuper = true)
     @Data
     public static class Config extends FilterConfig {
         private Integer timeout;
@@ -34,7 +35,6 @@ public class TimeoutPreFilter extends AbstractEntryProcessorFilter<TimeoutPreFil
 
     @Override
     public void entry(Context context, Object... args) throws Throwable {
-        System.out.println("child");
         try {
             RapidContext rapidContext = (RapidContext) context;
             String protocol = rapidContext.getProtocol();
