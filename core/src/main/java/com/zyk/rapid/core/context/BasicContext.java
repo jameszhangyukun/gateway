@@ -35,6 +35,53 @@ public class BasicContext implements Context {
     //	存放回调函数的集合
     protected List<Consumer<Context>> completedCallbacks;
 
+    /**
+     * SR(Server[Rapid-Core] Received):	服务器接收到网络请求
+     * SS(Server[Rapid-Core] Send):		服务器写回请求
+     * RS(Route Send):						客户端发送请求
+     * RR(Route Received): 				客户端收到请求
+     */
+
+    protected long SRTime;
+
+    protected long SSTime;
+
+    protected long RSTime;
+
+    protected long RRTime;
+
+    public long getSRTime() {
+        return SRTime;
+    }
+
+    public void setSRTime(long SRTime) {
+        this.SRTime = SRTime;
+    }
+
+    public long getSSTime() {
+        return SSTime;
+    }
+
+    public void setSSTime(long SSTime) {
+        this.SSTime = SSTime;
+    }
+
+    public long getRSTime() {
+        return RSTime;
+    }
+
+    public void setRSTime(long RSTime) {
+        this.RSTime = RSTime;
+    }
+
+    public long getRRTime() {
+        return this.RRTime;
+    }
+
+    public void setRRTime(long RRTime) {
+        this.RRTime = RRTime;
+    }
+
     public BasicContext(String protocol, ChannelHandlerContext nettyCtx, boolean keepAlive) {
         this.protocol = protocol;
         this.nettyCtx = nettyCtx;

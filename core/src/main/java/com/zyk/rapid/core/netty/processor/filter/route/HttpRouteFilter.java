@@ -4,6 +4,7 @@ import com.zyk.gateway.common.constants.ProcessFilterConstants;
 import com.zyk.gateway.common.enums.ResponseCode;
 import com.zyk.gateway.common.exception.RapidConnectException;
 import com.zyk.gateway.common.exception.RapidResponseException;
+import com.zyk.gateway.common.util.TimeUtil;
 import com.zyk.rapid.core.GatewayConfig;
 import com.zyk.rapid.core.GatewayConfigLoader;
 import com.zyk.rapid.core.context.Context;
@@ -39,6 +40,9 @@ public class HttpRouteFilter extends AbstractEntryProcessorFilter<FilterConfig> 
     @Override
     public void entry(Context context, Object... args) throws Throwable {
         RapidContext rapidContext = (RapidContext) context;
+        //	设置RS:
+        rapidContext.setRSTime(TimeUtil.currentTimeMillis());
+
         Request request = rapidContext.getRequestMutable().build();
         CompletableFuture<Response> future = AsyncHttpHelper.getInstance().executeRequest(request);
         // 双异步和单异步
@@ -67,6 +71,7 @@ public class HttpRouteFilter extends AbstractEntryProcessorFilter<FilterConfig> 
      */
     private void complete(Request request, Response response, Throwable throwable, RapidContext rapidContext, Object... args) {
         try {
+            rapidContext.setRRTime(TimeUtil.currentTimeMillis());
             // 1. 释放请求资源
             rapidContext.releaseRequest();
             // 2. 判断是否产生异常

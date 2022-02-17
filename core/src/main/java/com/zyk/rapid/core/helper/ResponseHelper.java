@@ -2,6 +2,7 @@ package com.zyk.rapid.core.helper;
 
 import com.zyk.gateway.common.constants.BasicConst;
 import com.zyk.gateway.common.enums.ResponseCode;
+import com.zyk.gateway.common.util.TimeUtil;
 import com.zyk.rapid.core.context.Context;
 import com.zyk.rapid.core.context.RapidResponse;
 import io.netty.buffer.ByteBuf;
@@ -26,6 +27,8 @@ public class ResponseHelper {
     }
 
     public static void writeResponse(Context context) {
+
+        context.setSSTime(TimeUtil.currentTimeMillis());
         context.releaseRequest();
         if (context.isWrittened()) {
             FullHttpResponse httpResponse = ResponseHelper.getHttpResponse(context, (RapidResponse) context.getResponse());

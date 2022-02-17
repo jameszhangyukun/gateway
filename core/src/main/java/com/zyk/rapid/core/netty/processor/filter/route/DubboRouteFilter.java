@@ -7,6 +7,7 @@ import com.zyk.gateway.common.enums.ResponseCode;
 import com.zyk.gateway.common.exception.DubboConnectException;
 import com.zyk.gateway.common.exception.RapidResponseException;
 import com.zyk.gateway.common.util.FastJsonConvertUtil;
+import com.zyk.gateway.common.util.TimeUtil;
 import com.zyk.rapid.core.GatewayConfig;
 import com.zyk.rapid.core.GatewayConfigLoader;
 import com.zyk.rapid.core.context.*;
@@ -72,6 +73,7 @@ public class DubboRouteFilter extends AbstractEntryProcessorFilter<FilterConfig>
                          RapidContext rapidContext,
                          Object[] args) {
         try {
+            rapidContext.setRRTime(TimeUtil.currentTimeMillis());
             if (Objects.nonNull(throwable)) {
                 DubboConnectException dubboConnectException = new DubboConnectException(throwable, rapidContext.getUniqueId(), rapidContext.getOriginRequest().getPath(), dubboServiceInvoker.getInterfaceClass(), dubboServiceInvoker.getMethodName(),
                         ResponseCode.DUBBO_RESPONSE_ERROR);

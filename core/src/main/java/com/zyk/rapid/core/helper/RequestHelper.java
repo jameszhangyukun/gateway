@@ -55,6 +55,9 @@ public class RequestHelper {
                 .setNettyCtx(ctx)
                 .setRule(rule)
                 .build();
+
+        //	6. 设置SR:
+        rapidContext.setSRTime(rapidRequest.getBeginTime());
         // 设置必要的上下文参数
         putContext(rapidContext, serviceInvoker);
 

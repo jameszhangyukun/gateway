@@ -50,6 +50,8 @@ public class GatewayConfig {
     //	http body报文最大大小
     private int maxContentLength = 64 * 1024 * 1024;
 
+    private String kafkaAddress;
+
     //	dubbo开启连接数数量
     private int dubboConnections = processThread;
 
@@ -65,6 +67,7 @@ public class GatewayConfig {
 
     //	网关队列：阻塞/等待策略
     private String waitStrategy = "blocking";
+    private String metricTopic = "gateway-topic";
 
     public WaitStrategy getATrueWaitStrategy() {
         switch (waitStrategy) {
@@ -111,4 +114,8 @@ public class GatewayConfig {
      * 客户端空闲连接超时事件，默认是60s
      */
     private int httpPooledConnectionIdleTimeout = 60 * 1000;
+
+    public String getMetricTopic() {
+        return metricTopic;
+    }
 }

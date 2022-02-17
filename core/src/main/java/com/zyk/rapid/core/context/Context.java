@@ -132,15 +132,27 @@ public interface Context {
     void invokeCompletedCallback();
 
     /**
-     * SR：服务器接收到网络请求
-     * SS：服务器写回请求
-     * RS：客户端发送网络请求
-     * RR：客户端收到请求
+     * 	SR(Server[Rapid-Core] Received):	网关服务器接收到网络请求
+     * 	SS(Server[Rapid-Core] Send):		网关服务器写回请求
+     * 	RS(Route Send):						网关客户端发送请求
+     * 	RR(Route Received): 				网关客户端收到请求
      */
-//    void getSRTime();
-//
-//    void setSRTime(long SRTime);
 
+    long getSRTime();
+
+    void setSRTime(long sRTime);
+
+    long getSSTime();
+
+    void setSSTime(long sSTime);
+
+    long getRSTime();
+
+    void setRSTime(long rSTime);
+
+    long getRRTime();
+
+    void setRRTime(long rRTime);
 
 
 }
